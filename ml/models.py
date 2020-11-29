@@ -81,10 +81,10 @@ class GaussianMixture:
             # M-Step
             for comp in range(n_components):
                 new_weight = np.sum(post_hidden[comp]) / post_hidden.sum()
-
+                
                 new_mean = (np.sum(post_hidden[comp] * data.T, axis=1)
                            / post_hidden[comp].sum())
-
+                
                 new_cov = ((post_hidden[comp] * (data-new_mean).T)
                            @ (data-new_mean) / np.sum(post_hidden[comp]))
 
@@ -150,7 +150,6 @@ class GaussianMixture:
 
     def predict(self, data, thresh=0.5):
         """Predict labels given the threshold"""
-
         probs = self.predict_proba(data)
         preds = np.floor(probs + 1.0 - thresh)
         return preds
