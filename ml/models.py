@@ -29,7 +29,7 @@ class KernelRidgeRegression:
         kernel = self.kernel.compute_matrix(x, x)
         m = x.shape[0]
         gamma = self.gamma
-        alpha = np.linalg.solve(kernel + gamma*m*np.identity(l), y.reshape(-1, 1))
+        alpha = np.linalg.solve(kernel + gamma*m*np.identity(m), y.reshape(-1, 1))
         self.alpha = alpha
         self.x = x
 

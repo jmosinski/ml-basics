@@ -13,9 +13,9 @@ class Kernel:
     def compute_matrix(self, x, t):
         m_x = x.shape[0]
         m_t = t.shape[0]
-        kernel_matrix = np.zeros((n_x, n_t))
+        kernel_matrix = np.zeros((m_x, m_t))
         for i in range(m_x):
-            for j in range(m_y):
+            for j in range(m_t):
                 kernel_matrix[i, j] = self.apply(x[i], t[j])
         return kernel_matrix
 
@@ -50,6 +50,7 @@ class RBF(Kernel):
     def apply(self, x, t):
         sigma = self.params['sigma']
         two_sigma_sq = 2 * sigma**2
+        diff = x - t
         return np.exp(-np.dot(diff, diff) / two_sigma_sq)
 
 
