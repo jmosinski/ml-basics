@@ -52,6 +52,17 @@ class RBF(Kernel):
         two_sigma_sq = 2 * sigma**2
         diff = x - t
         return np.exp(-np.dot(diff, diff) / two_sigma_sq)
+    
+    def compute_matrix(self, x, t):
+        two_sigma_sq = 2 * self.params['sigma']**2
+        m_x = x.shape[0]
+        m_t = t.shape[0]
+        kernel = np.zeros((m_x, m_t))
+        for i in range(m_x):
+            for j in range(m_t):
+                diff = x[i] - t[j]
+                kernel[i, j] = np.exp(-np.dot(diff, diff) / two_sigma_sq)
+        return kernel
 
 
 def get_kernel(kernel_name, kernel_params=None):
