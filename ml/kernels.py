@@ -45,24 +45,20 @@ class Polynomial(Kernel):
 
 
 class RBF(Kernel):
-    """RBF kernel class, K(x, t) = exp(-||x-t||^2 / (2 * sigma^2))"""
+    """RBF kernel class, K(x, t) = exp(-||x-t||^2 / (2*sigma^2))"""
 
     def apply(self, x, t):
         sigma = self.params['sigma']
         two_sigma_sq = 2 * sigma**2
         diff = x - t
         return np.exp(-np.dot(diff, diff) / two_sigma_sq)
-    
+
     def compute_matrix(self, x, t):
         two_sigma_sq = 2 * self.params['sigma']**2
-        m_x = x.shape[0]
-        m_t = t.shape[0]
-        kernel = np.zeros((m_x, m_t))
-        for i in range(m_x):
-            for j in range(m_t):
-                diff = x[i] - t[j]
-                kernel[i, j] = np.exp(-np.dot(diff, diff) / two_sigma_sq)
-        return kernel
+        x_norm_sq = np.sum(x**2, axis=-1, keepdims=True)
+        t_norm_sq = np.sum(t**2, axis=-1, keepdims=True)
+        norm_sq = x_norm_sq + t_norm_sq.T - 2*x@t.T
+        return np.exp(-norm_sq / two_sigma_sq)
 
 
 def get_kernel(kernel_name, kernel_params=None):
