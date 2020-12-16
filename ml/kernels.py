@@ -66,7 +66,7 @@ def get_kernel(kernel_name, kernel_params=None):
     kernel_name = kernel_name.lower()
     if kernel_name == 'linear':
         return Linear()
-    elif kernel_name == 'polynomial':
+    elif kernel_name == 'poly':
         return Polynomial(kernel_params)
     elif kernel_name == 'rbf':
         return RBF(kernel_params)

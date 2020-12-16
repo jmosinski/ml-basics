@@ -1,14 +1,27 @@
 # ml-basics
 ## Implementations of basic Machine Learning algortihms with numpy.
 
-### ml.models
+### ml.linear_models
 * LinearRegression
 * KernelRidgeRegression
-* GaussianMixture
+* MulticlassKernelPerceptron
+
+### ml.svm (cvxopt, joblib)
+* SVC
+* MulticlassSVC
+
+### ml.tree
 * DecisionTreeClassifier
+
+### ml.ensemble (joblib)
 * RandomForestClassifier
-* MarkovChain
-* MarkovMixture
+
+### ml.mixture
+* GaussianMixture
+
+### ml.graphical_models
+* MarcovChain
+* MarcovMixture
 
 ### ml.kernels
 * Linear
