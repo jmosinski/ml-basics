@@ -4,17 +4,22 @@
 ### ml.linear_models
 * LinearRegression
 * KernelRidgeRegression
+* Winnow
+* Perceptron
+* KernelPerceptron
 * MulticlassKernelPerceptron
 
-### ml.svm (cvxopt, joblib)
+### ml.svm (cvxopt)
 * SVC
-* MulticlassSVC
 
 ### ml.tree
 * DecisionTreeClassifier
 
 ### ml.ensemble (joblib)
 * RandomForestClassifier
+
+### ml.neighbors
+* KNeighborsClassifier
 
 ### ml.mixture
 * GaussianMixture
@@ -28,6 +33,9 @@
 * Polynomial
 * RBF
 * get_kernel
+
+### ml.multiclass
+* OneVsOneClassifier
 
 ### ml.utils
 * log_clip
