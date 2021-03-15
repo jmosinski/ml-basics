@@ -37,6 +37,12 @@
 ### ml.multiclass
 * OneVsOneClassifier
 
+### ml.cluster
+* KMeans
+
+### ml.decomposition
+* PCA
+
 ### ml.utils
 * log_clip
 * normalize
