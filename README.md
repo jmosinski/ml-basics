@@ -8,6 +8,7 @@
 * Perceptron
 * KernelPerceptron
 * MulticlassKernelPerceptron
+* LogisticRegression
 
 ### ml.svm (cvxopt)
 * SVC
